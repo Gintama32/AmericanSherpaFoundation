@@ -40,6 +40,16 @@ export default function Navbar() {
               Profiles
             </Link>
             <Link
+              to="/history"
+              className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                isActive('/history')
+                  ? 'text-primary-700 border-b-2 border-primary-700'
+                  : 'text-gray-700 hover:text-primary-600'
+              }`}
+            >
+              History
+            </Link>
+            <Link
               to="/blogs"
               className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                 isActive('/blogs')
@@ -99,6 +109,17 @@ export default function Navbar() {
               onClick={() => setIsOpen(false)}
             >
               Profiles
+            </Link>
+            <Link
+              to="/history"
+              className={`block px-3 py-2 rounded-md text-base font-medium ${
+                isActive('/history')
+                  ? 'text-primary-700 bg-primary-50'
+                  : 'text-gray-700 hover:bg-gray-100'
+              }`}
+              onClick={() => setIsOpen(false)}
+            >
+              History
             </Link>
             <Link
               to="/blogs"
