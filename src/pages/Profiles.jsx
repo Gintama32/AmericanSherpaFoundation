@@ -1,66 +1,36 @@
 import { useState } from 'react'
 
-// Sample profile data - in a real app, this would come from an API
+// Profiles data - real Sherpa leaders highlighted by the foundation
 const sampleProfiles = [
   {
     id: 1,
-    name: 'Tenzing Sherpa',
-    title: 'Entrepreneur & Business Leader',
-    location: 'New York, NY',
+    name: 'Nurbu Sherpa',
+    title: 'Founder & CEO, Sherpa Foods',
+    location: 'United States',
     achievement:
-      'Founded a successful tech startup that employs over 200 people',
-    bio: 'Tenzing moved to America in 2005 and has since built a thriving technology company. His innovative approach to business has earned him recognition in Forbes and other major publications.',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop',
+      'Founder and CEO of Sherpa Foods, one of the first Nepali consumer packaged goods companies in the United States.',
+    bio: 'Nurbu Sherpa is the Founder and Chief Executive Officer of Sherpa Foods, one of the first Nepali consumer packaged goods (CPG) food companies in the United States. He holds a Bachelor of Science in Management from the University of Texas and spent over a decade at Macy’s in New York City in progressively senior roles across sales, buying, marketing, and business management. His broad cross-functional experience in merchandising, marketing, and operations laid a strong foundation for building and scaling Sherpa Foods. Alongside his corporate career, he has been a creative leader and community builder—as one of the first Nepali hip-hop artists to promote the genre in Nepal, co-founder of the Network of Sherpa Students & Professionals (NSSP), and co-founder of Empower1, a nonprofit focused on education and economic initiatives in Nepal. Through Sherpa Foods, he continues to give back by donating a portion of proceeds and providing prepared meals to shelters, food shelves, and community organizations, while leading product, sales, marketing, HR, and day-to-day operations.',
+    image: '/nurbu.jpg',
   },
   {
     id: 2,
-    name: 'Lhakpa Sherpa',
-    title: 'Medical Professional',
-    location: 'Boston, MA',
+    name: 'Ang Galgen Sherpa',
+    title: 'President & Co-Founder, Everest Accounting & Tax Inc.',
+    location: 'Jackson Heights, NY',
     achievement:
-      'Leading cardiologist at a major hospital, published researcher',
-    bio: 'Dr. Lhakpa Sherpa is a renowned cardiologist who has published over 50 research papers. She has dedicated her career to improving heart health in underserved communities.',
-    image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop',
+      'President and co-founder of Everest Accounting & Tax Inc., a full-service accounting and tax practice serving individuals, businesses, and nonprofits.',
+    bio: 'Ang Galgen Sherpa is the President and Co-Founder of Everest Accounting & Tax Inc., a full-service accounting and tax practice based in Jackson Heights, New York. Since launching the firm in 2020, he has built a reputation for precise, reliable, and client-centered tax and advisory services for individuals, small businesses, and nonprofit organizations. He leads strategic direction, oversees complex client engagements, and designs the operational and compliance systems that support consistent, high-quality service. Ang holds a BBA in Accounting from Baruch College, CUNY, and is pursuing an MS in Taxation with advanced coursework in federal income, corporate, and gift and estate taxes. His experience includes an accounting internship at Accountax Advisor Ltd., where he supported payroll, financial reporting, and reconciliations. Beyond his professional work, he has a decade-long record of community leadership, including serving as President of the United Sherpa Association and engaging in disaster relief, community health, and educational initiatives.',
+    image: 'https://images.unsplash.com/photo-1544723795-3fb0b90cffc6?w=400&h=400&fit=crop',
   },
   {
     id: 3,
-    name: 'Mingma Sherpa',
-    title: 'Educator & Author',
-    location: 'Seattle, WA',
+    name: 'Dr. Lobsang Salaka',
+    title: 'Foreign Affairs & National Security Professional',
+    location: 'United States',
     achievement:
-      'Award-winning author and professor at a leading university',
-    bio: 'Mingma is a professor of cultural studies and has authored several books on Sherpa culture and history. Her work has been instrumental in preserving and sharing Sherpa heritage.',
-    image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop',
-  },
-  {
-    id: 4,
-    name: 'Ang Rita Sherpa',
-    title: 'Engineer & Innovator',
-    location: 'San Francisco, CA',
-    achievement:
-      'Senior engineer at a Fortune 500 company, holds 15+ patents',
-    bio: 'Ang Rita is a trailblazing engineer who has contributed to groundbreaking innovations in renewable energy. His work has helped advance sustainable technology solutions.',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop',
-  },
-  {
-    id: 5,
-    name: 'Pasang Sherpa',
-    title: 'Community Leader & Activist',
-    location: 'Denver, CO',
-    achievement:
-      'Founded multiple community organizations serving immigrants',
-    bio: 'Pasang has dedicated her life to helping immigrants integrate into American society. She has established several non-profit organizations that provide essential services to newcomers.',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop',
-  },
-  {
-    id: 6,
-    name: 'Nima Sherpa',
-    title: 'Chef & Restaurateur',
-    location: 'Los Angeles, CA',
-    achievement:
-      'Michelin-starred chef, owner of multiple successful restaurants',
-    bio: 'Nima has brought authentic Sherpa cuisine to America, earning critical acclaim and a Michelin star. His restaurants celebrate Sherpa culture through food and hospitality.',
-    image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop',
+      'Seasoned military and federal service professional with extensive experience in foreign affairs, national security, and public policy.',
+    bio: 'Dr. Lobsang Salaka is a seasoned military and federal service professional with extensive expertise in foreign affairs, national security, and law and policy. He has served as a Foreign Affairs Specialist with the U.S. Air Force, supporting international engagement and Security Cooperation programs, and previously held key roles at the U.S. Department of Agriculture, U.S. Department of State, and U.S. Census Bureau. Dr. Salaka has experience on Capitol Hill as a Congressional Fellow in the offices of Rep. Joe Crowley and Rep. Adriano Espaillat and as a Congressional Legislative Fellow funded by Student Veterans of America and the Veterans of Foreign Wars. His public service spans local, state, and federal government, including work with the New York State Department of Labor and three terms on Queens Community Board District 3, where he chaired the Immigration Committee. He mentors graduate students at Columbia University’s School of International and Public Affairs, serves on the Columbia University Washington, D.C. Alumni Association board, and is active in veterans’ and community organizations. His academic credentials include a Doctor of Law and Policy from Northeastern University and multiple graduate degrees in public administration and business.',
+    image: '/lobsang.jpg',
   },
 ]
 
@@ -92,11 +62,11 @@ export default function Profiles() {
                 className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow cursor-pointer"
                 onClick={() => setSelectedProfile(profile)}
               >
-                <div className="h-64 overflow-hidden">
+              <div className="h-64 overflow-hidden">
                   <img
                     src={profile.image}
                     alt={profile.name}
-                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                  className="w-full h-full object-cover object-center hover:scale-110 transition-transform duration-300"
                   />
                 </div>
                 <div className="p-6">
@@ -156,7 +126,7 @@ export default function Profiles() {
                 <img
                   src={selectedProfile.image}
                   alt={selectedProfile.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-center"
                 />
               </div>
             </div>
