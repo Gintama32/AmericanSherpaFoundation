@@ -44,6 +44,26 @@ const sampleProfiles = [
     image: '/sonam.jpg',
     imagePosition: 'object-top',
   },
+  {
+    id: 5,
+    name: 'Phurbu N Lama',
+    title: 'Global Controller, Orchestra Group',
+    location: 'New York, NY',
+    achievement:
+      'Leads accounting and financial infrastructure at Orchestra Group (formerly BerlinRosen); former Controller at Zero Point Zero Productions; CPA.',
+    bio: 'Phurbu N Lama, aka Phurnyima, is the Global Controller for Orchestra Group (formerly BerlinRosen), a New York–headquartered public relations firm. He leads the accounting function and plays a key role in strengthening the organization’s financial infrastructures, supporting M&A activities, overseeing consolidated financial reporting, building centralized accounting processes, and driving systems integration and upgrades. Known for a disciplined, hands-on leadership style, he partners across teams to improve operational visibility and support timely, data-informed decision-making. Before joining Orchestra, Phurbu served as Controller at Zero Point Zero Productions, the production company behind a popular CNN reality series hosted by Anthony Bourdain. He began his career as a staff accountant, advancing to Senior Accountant over 10 years at Kidro Production and the nonprofit Rose’s Broadway Kids. Before his corporate finance career, Phurbu was a second-generation rug manufacturer and exporter from Nepal, spending over 8 years in his family\'s business managing the export of fine, handmade Nepalese Tibetan rugs to Europe and the United States. He continues to pursue his passion for rug design and customization and collaborates with luxury brands such as Stickley Furniture. Phurbu earned a bachelor’s degree in business administration with an accounting major and completed his CPA.',
+    image: '/phurba.png',
+  },
+  {
+    id: 6,
+    name: 'Dr. Phudorji Sherpa',
+    title: 'Family Nurse Practitioner',
+    location: 'Montgomery County, MD',
+    achievement:
+      'DNP, FNP-C, CCRN—provides comprehensive primary and preventive care with Montgomery County DHHS; former critical care nurse at Walter Reed.',
+    bio: 'Dr. Phudorji Sherpa, DNP, FNP-C, CCRN, is a Family Nurse Practitioner with Maryland’s Montgomery County Department of Health and Human Services, where he provides comprehensive primary, preventive, and episodic care to individuals and families across the region. He conducts detailed health assessments, manages acute and chronic conditions, and delivers evidence-based interventions designed to meet the needs of the county’s diverse communities. Before joining Montgomery County, Dr. Sherpa practiced as a Family Nurse Practitioner with MedStar Urgent Care across Maryland, Virginia, and Washington, DC. His clinical foundation is rooted in extensive service within the U.S. military healthcare system; he served as a Charge Nurse and Critical Care Nurse at Walter Reed National Military Medical Center and other military medical centers, gaining high-acuity experience across the Medical ICU, Pediatric ICU, medical-surgical, and telemetry units. His military service has been recognized with multiple commendations for clinical excellence and dedication. Dr. Sherpa earned his Doctor of Nursing Practice from the University of Maryland School of Nursing, where he was honored for Excellence in the Family Nurse Practitioner Program. He also holds a Bachelor of Science in Nursing from New York University, graduating Magna Cum Laude, and a Bachelor of Arts from Wesleyan University. He maintains national certification as an FNP-C and CCRN.',
+    image: '/phurdorje.png',
+  },
 ]
 
 export default function Profiles() {
