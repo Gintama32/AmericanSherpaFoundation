@@ -20,7 +20,8 @@ const sampleProfiles = [
     achievement:
       'President and co-founder of Everest Accounting & Tax Inc., a full-service accounting and tax practice serving individuals, businesses, and nonprofits.',
     bio: 'Ang Galgen Sherpa is the President and Co-Founder of Everest Accounting & Tax Inc., a full-service accounting and tax practice based in Jackson Heights, New York. Since launching the firm in 2020, he has built a reputation for precise, reliable, and client-centered tax and advisory services for individuals, small businesses, and nonprofit organizations. He leads strategic direction, oversees complex client engagements, and designs the operational and compliance systems that support consistent, high-quality service. Ang holds a BBA in Accounting from Baruch College, CUNY, and is pursuing an MS in Taxation with advanced coursework in federal income, corporate, and gift and estate taxes. His experience includes an accounting internship at Accountax Advisor Ltd., where he supported payroll, financial reporting, and reconciliations. Beyond his professional work, he has a decade-long record of community leadership, including serving as President of the United Sherpa Association and engaging in disaster relief, community health, and educational initiatives.',
-    image: 'https://images.unsplash.com/photo-1544723795-3fb0b90cffc6?w=400&h=400&fit=crop',
+    image: '/galgen.jpg',
+    imagePosition: 'object-top',
   },
   {
     id: 3,
@@ -31,6 +32,17 @@ const sampleProfiles = [
       'Seasoned military and federal service professional with extensive experience in foreign affairs, national security, and public policy.',
     bio: 'Dr. Lobsang Salaka is a seasoned military and federal service professional with extensive expertise in foreign affairs, national security, and law and policy. He has served as a Foreign Affairs Specialist with the U.S. Air Force, supporting international engagement and Security Cooperation programs, and previously held key roles at the U.S. Department of Agriculture, U.S. Department of State, and U.S. Census Bureau. Dr. Salaka has experience on Capitol Hill as a Congressional Fellow in the offices of Rep. Joe Crowley and Rep. Adriano Espaillat and as a Congressional Legislative Fellow funded by Student Veterans of America and the Veterans of Foreign Wars. His public service spans local, state, and federal government, including work with the New York State Department of Labor and three terms on Queens Community Board District 3, where he chaired the Immigration Committee. He mentors graduate students at Columbia University’s School of International and Public Affairs, serves on the Columbia University Washington, D.C. Alumni Association board, and is active in veterans’ and community organizations. His academic credentials include a Doctor of Law and Policy from Northeastern University and multiple graduate degrees in public administration and business.',
     image: '/lobsang.jpg',
+  },
+  {
+    id: 4,
+    name: 'Sonam Lama',
+    title: 'Real Estate Professional',
+    location: 'United States',
+    achievement:
+      'Real estate expert with over 11 years of experience helping families and investors make confident property decisions.',
+    bio: 'Sonam Lama is a dedicated real estate professional with more than 11 years of experience turning property decisions into long-term successes for families and investors. He began his career with a simple goal: to help people make confident choices around one of the most important investments of their lives—their home. Over the years, Sonam has guided first-time homebuyers, growing families, and investors through every step of the buying and selling process. He understands that real estate is not just about properties but about dreams, stability, and building a secure future. His approach is rooted in honest advice, strong negotiation, and a commitment to making each transaction as smooth and stress-free as possible. Built on trust, relationships, and results, his business thrives on repeat clients and referrals—testament to the care and value he provides. For Sonam, real estate is not just what he does; it is who he is.',
+    image: '/sonam.jpg',
+    imagePosition: 'object-top',
   },
 ]
 
@@ -43,11 +55,12 @@ export default function Profiles() {
       <section className="bg-gradient-to-r from-primary-700 to-primary-900 text-white py-16">
         <div className="container-custom">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            High Achieving Sherpas in America
+            Sherpas in America
           </h1>
           <p className="text-xl text-primary-100 max-w-3xl">
-            Celebrating the remarkable achievements and contributions of
-            Sherpas who have excelled in various fields across America.
+            Celebrating the remarkable individuals who have adopted America as
+            their home. Sherpas will always improve nation-building, even though
+            they are a new category of American immigrants.
           </p>
         </div>
       </section>
@@ -66,7 +79,7 @@ export default function Profiles() {
                   <img
                     src={profile.image}
                     alt={profile.name}
-                  className="w-full h-full object-cover object-center hover:scale-110 transition-transform duration-300"
+                    className={`w-full h-full object-cover ${profile.imagePosition || 'object-center'} hover:scale-110 transition-transform duration-300`}
                   />
                 </div>
                 <div className="p-6">
@@ -126,7 +139,7 @@ export default function Profiles() {
                 <img
                   src={selectedProfile.image}
                   alt={selectedProfile.name}
-                  className="w-full h-full object-cover object-center"
+                  className={`w-full h-full object-cover ${selectedProfile.imagePosition || 'object-center'}`}
                 />
               </div>
             </div>
