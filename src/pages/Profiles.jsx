@@ -40,8 +40,9 @@ const sampleProfiles = [
     location: 'United States',
     achievement:
       'Real estate expert with over 11 years of experience helping families and investors make confident property decisions.',
-    bio: 'Sonam Lama is a dedicated real estate professional with more than 11 years of experience turning property decisions into long-term successes for families and investors. He began his career with a simple goal: to help people make confident choices around one of the most important investments of their lives—their home. Over the years, Sonam has guided first-time homebuyers, growing families, and investors through every step of the buying and selling process. He understands that real estate is not just about properties but about dreams, stability, and building a secure future. His approach is rooted in honest advice, strong negotiation, and a commitment to making each transaction as smooth and stress-free as possible. Built on trust, relationships, and results, his business thrives on repeat clients and referrals—testament to the care and value he provides. For Sonam, real estate is not just what he does; it is who he is.',
+    bio: 'My name is Sonam Lama, and real estate has been more than just my career, it’s been my passion for over 11 years. I started this journey with one simple goal to help families make confident decisions when buying or selling one of the most important investments of their lives. Over the years, I’ve had the privilege of guiding first time homebuyers, growing families, and investors through every step of the process. I understand that real estate isn’t just about properties, it’s about dreams, stability, and building a future. That’s why I focus on honest advice, strong negotiation, and making the process as smooth and stress free as possible. My business is built on trust, relationships, and results. Many of my clients become repeat clients and referrals, which I consider the greatest compliment. Whether you’re buying your first home, selling for top value, or planning your next investment, I am committed to protecting your best interests and helping you achieve your goals with confidence. Real estate is not just what I do, it’s who I am.',
     image: '/sonam.jpg',
+    imageFit: 'object-contain',
     imagePosition: 'object-top',
   },
   {
@@ -63,6 +64,26 @@ const sampleProfiles = [
       'DNP, FNP-C, CCRN—provides comprehensive primary and preventive care with Montgomery County DHHS; former critical care nurse at Walter Reed.',
     bio: 'Dr. Phudorji Sherpa, DNP, FNP-C, CCRN, is a Family Nurse Practitioner with Maryland’s Montgomery County Department of Health and Human Services, where he provides comprehensive primary, preventive, and episodic care to individuals and families across the region. He conducts detailed health assessments, manages acute and chronic conditions, and delivers evidence-based interventions designed to meet the needs of the county’s diverse communities. Before joining Montgomery County, Dr. Sherpa practiced as a Family Nurse Practitioner with MedStar Urgent Care across Maryland, Virginia, and Washington, DC. His clinical foundation is rooted in extensive service within the U.S. military healthcare system; he served as a Charge Nurse and Critical Care Nurse at Walter Reed National Military Medical Center and other military medical centers, gaining high-acuity experience across the Medical ICU, Pediatric ICU, medical-surgical, and telemetry units. His military service has been recognized with multiple commendations for clinical excellence and dedication. Dr. Sherpa earned his Doctor of Nursing Practice from the University of Maryland School of Nursing, where he was honored for Excellence in the Family Nurse Practitioner Program. He also holds a Bachelor of Science in Nursing from New York University, graduating Magna Cum Laude, and a Bachelor of Arts from Wesleyan University. He maintains national certification as an FNP-C and CCRN.',
     image: '/phurdorje.png',
+  },
+  {
+    id: 7,
+    name: 'Dawa G. Sherpa',
+    title: 'Sr. Manager, Technical Support Engineering at Microsoft',
+    location: 'United States',
+    achievement:
+      'Leads advertiser support at Microsoft and has progressed from solutions consulting to senior technical support leadership across AppNexus, AT&T, and Microsoft.',
+    bio: 'Dawa G. Sherpa is a Sr. Manager of Technical Support Engineering at Microsoft, where he leads an advertiser support team. He originally joined AppNexus in 2018 and remained with the organization through acquisitions by AT&T and later Microsoft. Throughout these transitions, Dawa advanced through roles including Solutions Consultant, Product Support Sr Analyst, Director of Product Support, and now Sr Manager, Technical Support. He specializes in scaling technical support for global advertiser clients within the ad-tech sector. Before working in technology, Dawa worked at ad agencies and ran digital ad campaigns across social media platforms for some of the largest advertisers. He later pivoted into technology by completing an immersive web development bootcamp. He holds a Bachelor’s degree from Baruch College and volunteered as a Marketing Coordinator with NSSP (Network of Sherpa Students and Professionals) throughout college.',
+    image: '/dawa.jpg',
+  },
+  {
+    id: 8,
+    name: 'SFC Kalden Lama',
+    title: 'United States Army Recruiter',
+    location: 'Irving, TX (Dallas-Fort Worth Battalion)',
+    achievement:
+      'SFC in the U.S. Army recognized for recruiting excellence, mentorship, and consistent mission success since joining Army Recruiting Command in 2016.',
+    bio: 'Sergeant First Class Kalden Lama serves as a United States Army Recruiter at Irving Recruiting Station in the Dallas-Fort Worth Battalion. Born in Bamti Bhandar, Ramechhap, he is married to Ngima Yangji Sherpa and is the father of two sons, Max Lama and Yidam Sherpa Lama. He completed his schooling at Galaxy Public High School in Kathmandu and earned his bachelor’s degree from Excelsior College, New York. Since enlisting in 2010 while pursuing higher education, SFC Lama has built a distinguished career marked by leadership and excellence. His service includes a deployment to Kuwait and assignments with the 15th Engineering Battalion, 615th Aviation Battalion (as squad leader and section sergeant), New York City Recruiting Battalion, and Dallas-Fort Worth Recruiting Battalion. His awards include the Meritorious Service Medal, Army Commendation Medal, Army Achievement Medal, Military Outstanding Volunteer Service Medal, Good Conduct Medal, and the Glen E. Morrell Award. Mission-oriented and proven, SFC Lama remains dedicated to strengthening the force one future soldier at a time.',
+    image: '/kalden.png',
   },
 ]
 
@@ -95,11 +116,11 @@ export default function Profiles() {
                 className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow cursor-pointer"
                 onClick={() => setSelectedProfile(profile)}
               >
-              <div className="h-64 overflow-hidden">
+              <div className="h-64 overflow-hidden bg-gray-100">
                   <img
                     src={profile.image}
                     alt={profile.name}
-                    className={`w-full h-full object-cover ${profile.imagePosition || 'object-center'} hover:scale-110 transition-transform duration-300`}
+                    className={`w-full h-full ${profile.imageFit || 'object-cover'} ${profile.imagePosition || 'object-center'} hover:scale-110 transition-transform duration-300`}
                   />
                 </div>
                 <div className="p-6">
@@ -111,9 +132,6 @@ export default function Profiles() {
                   </p>
                   <p className="text-gray-600 text-sm mb-3">
                     📍 {profile.location}
-                  </p>
-                  <p className="text-gray-700 line-clamp-3">
-                    {profile.achievement}
                   </p>
                   <button className="mt-4 text-primary-700 font-semibold hover:text-primary-600 transition-colors">
                     Read More →
@@ -155,11 +173,11 @@ export default function Profiles() {
                   />
                 </svg>
               </button>
-              <div className="h-64 md:h-80 overflow-hidden">
+              <div className="h-64 md:h-80 overflow-hidden bg-gray-100">
                 <img
                   src={selectedProfile.image}
                   alt={selectedProfile.name}
-                  className={`w-full h-full object-cover ${selectedProfile.imagePosition || 'object-center'}`}
+                  className={`w-full h-full ${selectedProfile.imageFit || 'object-cover'} ${selectedProfile.imagePosition || 'object-center'}`}
                 />
               </div>
             </div>
@@ -171,12 +189,6 @@ export default function Profiles() {
                 {selectedProfile.title}
               </p>
               <p className="text-gray-600 mb-6">📍 {selectedProfile.location}</p>
-              <div className="mb-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  Key Achievement
-                </h3>
-                <p className="text-gray-700">{selectedProfile.achievement}</p>
-              </div>
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
                   Biography
