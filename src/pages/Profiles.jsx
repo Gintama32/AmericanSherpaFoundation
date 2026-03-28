@@ -85,6 +85,16 @@ const sampleProfiles = [
     bio: 'Sergeant First Class Kalden Lama serves as a United States Army Recruiter at Irving Recruiting Station in the Dallas-Fort Worth Battalion. Born in Bamti Bhandar, Ramechhap, he is married to Ngima Yangji Sherpa and is the father of two sons, Max Lama and Yidam Sherpa Lama. He completed his schooling at Galaxy Public High School in Kathmandu and earned his bachelor’s degree from Excelsior College, New York. Since enlisting in 2010 while pursuing higher education, SFC Lama has built a distinguished career marked by leadership and excellence. His service includes a deployment to Kuwait and assignments with the 15th Engineering Battalion, 615th Aviation Battalion (as squad leader and section sergeant), New York City Recruiting Battalion, and Dallas-Fort Worth Recruiting Battalion. His awards include the Meritorious Service Medal, Army Commendation Medal, Army Achievement Medal, Military Outstanding Volunteer Service Medal, Good Conduct Medal, and the Glen E. Morrell Award. Mission-oriented and proven, SFC Lama remains dedicated to strengthening the force one future soldier at a time.',
     image: '/kalden.png',
   },
+  {
+    id: 9,
+    name: 'Dawa Sherpa',
+    title: 'Product & Technology Executive',
+    location: 'United States',
+    achievement:
+      'Founder of True Steps, Inc.; product and engineering leader with 20+ years guiding companies through growth inflection points.',
+    bio: 'Dawa Sherpa is a product and engineering leader who specializes in the inflection points of growth. With over 20 years of experience, he helps companies navigate the transition from early-stage builds to scalable, high-performing organizations—whether that requires stabilizing a legacy system or reshaping an engineering culture. As the founder of True Steps, Inc., Dawa provides fractional leadership and strategic execution for companies such as CookUnity, Vivian, Sugarwork, and Radix Health. His work sits at the intersection of product, engineering, and operations; he focuses on cutting through the noise so teams build the right things and ship them. His approach is rooted in his early years as a software engineer at Etsy, where he helped scale core parts of the platform during its formative years—that foundation in distributed systems and high-growth engineering still shapes his leadership as someone who stays close to the codebase while operating at the executive level. A computer science graduate by training, Dawa is focused on how AI is changing software development and is an advocate for small, autonomous teams using modern tools and lean structures to outpace much larger organizations.',
+    image: '/dawa1.png',
+  },
 ]
 
 export default function Profiles() {
@@ -106,38 +116,43 @@ export default function Profiles() {
         </div>
       </section>
 
-      {/* Profiles Grid */}
+      {/* Profiles grid: large photo tiles; details open in modal */}
       <section className="py-16">
         <div className="container-custom">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <p className="text-gray-600 text-center max-w-xl mx-auto mb-10">
+            Select a portrait to read their full story.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
             {sampleProfiles.map((profile) => (
-              <div
+              <button
+                type="button"
                 key={profile.id}
-                className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow cursor-pointer"
+                className="group relative w-full overflow-hidden rounded-2xl shadow-lg ring-1 ring-black/5 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-600 focus-visible:ring-offset-2 aspect-[3/4]"
                 onClick={() => setSelectedProfile(profile)}
               >
-              <div className="h-64 overflow-hidden bg-gray-100">
+                <span className="sr-only">Open profile: {profile.name}</span>
+                <div
+                  className={`absolute inset-0 ${profile.imageFit === 'object-contain' ? 'bg-neutral-900' : 'bg-gray-100'}`}
+                >
                   <img
                     src={profile.image}
-                    alt={profile.name}
-                    className={`w-full h-full ${profile.imageFit || 'object-cover'} ${profile.imagePosition || 'object-center'} hover:scale-110 transition-transform duration-300`}
+                    alt=""
+                    className={`h-full w-full transition-transform duration-500 ease-out group-hover:scale-[1.03] ${profile.imageFit || 'object-cover'} ${profile.imagePosition || 'object-center'}`}
                   />
                 </div>
-                <div className="p-6">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                <div
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 transition-opacity group-hover:opacity-100"
+                  aria-hidden
+                />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 p-6 md:p-8">
+                  <h3 className="text-2xl md:text-3xl font-bold text-white drop-shadow-sm">
                     {profile.name}
                   </h3>
-                  <p className="text-primary-600 font-semibold mb-2">
-                    {profile.title}
+                  <p className="mt-2 text-sm font-medium text-white/85">
+                    View profile
                   </p>
-                  <p className="text-gray-600 text-sm mb-3">
-                    📍 {profile.location}
-                  </p>
-                  <button className="mt-4 text-primary-700 font-semibold hover:text-primary-600 transition-colors">
-                    Read More →
-                  </button>
                 </div>
-              </div>
+              </button>
             ))}
           </div>
         </div>
@@ -173,11 +188,11 @@ export default function Profiles() {
                   />
                 </svg>
               </button>
-              <div className="h-64 md:h-80 overflow-hidden bg-gray-100">
+              <div className="h-72 md:h-96 overflow-hidden bg-gray-100">
                 <img
                   src={selectedProfile.image}
-                  alt={selectedProfile.name}
-                  className={`w-full h-full ${selectedProfile.imageFit || 'object-cover'} ${selectedProfile.imagePosition || 'object-center'}`}
+                  alt=""
+                  className={`h-full w-full ${selectedProfile.imageFit || 'object-cover'} ${selectedProfile.imagePosition || 'object-center'}`}
                 />
               </div>
             </div>
