@@ -3,6 +3,16 @@ import { useState } from 'react'
 // Profiles data - real Sherpa leaders highlighted by the foundation
 const sampleProfiles = [
   {
+    id: 10,
+    name: 'Gelu Sherpa',
+    title: 'First Vice President, Internal Audit | Safra National Bank',
+    location: 'New York, NY',
+    achievement:
+      'One of the first Sherpas in the United States to earn the CPA credential and now a senior internal audit leader in private banking.',
+    bio: 'Gelu Sherpa, CPA, CISA, is a finance and audit leader whose career reflects both personal excellence and meaningful progress for the Sherpa community. He is among the first Sherpas in the United States to earn the Certified Public Accountant credential, helping expand representation in a field where the community has long been underrepresented. He earned a bachelor’s degree in Mathematics and Accounting from Luther College in Decorah, Iowa, a strong academic foundation that still shapes his analytical approach today. Gelu began his career in 2006 with the Iowa Office of Auditor of State, where he developed deep expertise in public sector auditing and financial accountability. He later moved into private sector roles at Lenovo US and Experis Finance, broadening his experience across industries and preparing for the financial services sector. In 2014, he joined Safra National Bank and has since built a distinguished leadership track in internal audit. He currently serves as First Vice President of Internal Audit, overseeing audit activities across the bank and its affiliates with a focus on risk management, regulatory compliance, and financial controls. His CISA designation further highlights his expertise in IT audit and information systems governance. From state audit offices in Iowa to senior leadership at a major New York private bank, Gelu’s path reflects nearly two decades of steady growth, discipline, and commitment. His success also carries wider significance for the Sherpa diaspora, showing younger professionals what is possible in highly technical and credentialed fields.',
+    image: '/gelu.JPG',
+  },
+  {
     id: 1,
     name: 'Nurbu Sherpa',
     title: 'Founder & CEO, Sherpa Foods',

@@ -3,6 +3,75 @@ import { useState } from 'react'
 // Sample blog data - in a real app, this would come from an API
 const sampleBlogs = [
   {
+    id: 7,
+    title: 'A Journey Beyond the Himalayas',
+    author: 'American Sherpa Foundation',
+    date: '2026-04-03',
+    excerpt:
+      'An exploration of how Sherpa families in America carry forward Buddhist values, preserve cultural identity, and shape community life across generations.',
+    contentHtml: `
+      <p>The story of Sherpas in America is not just about migration. It is about the movement of a deeply rooted culture shaped by mountains, resilience, and spirituality. Originally from the high Himalayan regions of Nepal, Sherpas have long been known for their strength, humility, and unmatched endurance. Beyond mountaineering, what truly defines the Sherpa identity is their connection to Tibetan Buddhism.</p>
+      <p>As Sherpa families settle in the United States, they bring with them not only their work ethic and community values, but also a spiritual philosophy that quietly shapes their lives and, increasingly, the communities around them.</p>
+      <img src="/religion1.png" alt="Sherpa religious and cultural gathering" class="my-6 w-full rounded-lg object-cover" />
+
+      <h3>Buddhism as a Living Practice</h3>
+      <p>For Sherpas in America, Buddhism is not something practiced only in temples. It is woven into everyday life.</p>
+      <p>Core teachings such as compassion, mindfulness, and respect for all living beings guide how Sherpas:</p>
+      <ul>
+        <li>Raise their families</li>
+        <li>Conduct business</li>
+        <li>Build community relationships</li>
+      </ul>
+      <p>Even in busy American cities, Sherpa households often maintain traditions like:</p>
+      <ul>
+        <li>Daily prayers or mantra recitations</li>
+        <li>Celebrating Buddhist festivals</li>
+        <li>Teaching children about karma, kindness, and humility</li>
+      </ul>
+      <p>This creates a balance between modern American life and ancient Himalayan wisdom.</p>
+
+      <h3>Building Community in a New Land</h3>
+      <p>Across cities like New York, Boston, and Colorado, Sherpa communities are growing and organizing. Cultural associations and informal networks help preserve traditions while adapting to a new environment.</p>
+      <p>Monasteries and spiritual centers, sometimes small and community-built, serve as gathering places where:</p>
+      <ul>
+        <li>Monks lead prayers and ceremonies</li>
+        <li>Families celebrate religious festivals</li>
+        <li>Younger generations reconnect with their roots</li>
+      </ul>
+      <p>These spaces reflect the same spirit found in Himalayan monasteries, such as Tengboche Monastery, even if they exist thousands of miles away.</p>
+
+      <h3>Preserving Identity Across Generations</h3>
+      <p>One of the biggest challenges for Sherpas in America is ensuring that their children stay connected to their heritage.</p>
+      <p>Parents often emphasize:</p>
+      <ul>
+        <li>Learning the Sherpa language</li>
+        <li>Understanding Buddhist values</li>
+        <li>Respecting elders and community traditions</li>
+      </ul>
+      <p>At the same time, younger generations blend these traditions with American culture, creating a unique identity that is both Sherpa and American.</p>
+
+      <h3>A Quiet Influence on American Society</h3>
+      <p>Sherpa Buddhism may not always be visible, but its influence is meaningful.</p>
+      <p>In a fast-paced, high-pressure society, the Sherpa approach to life offers something different:</p>
+      <ul>
+        <li>A focus on inner peace over external success</li>
+        <li>A deep respect for nature and balance</li>
+        <li>A belief that actions, no matter how small, matter</li>
+      </ul>
+      <p>These values resonate far beyond the Sherpa community, especially as mindfulness and meditation become more widely embraced in the U.S.</p>
+      <img src="/religion2.png" alt="Buddhist practice in Sherpa community" class="my-6 w-full rounded-lg object-cover" />
+
+      <h3>More Than a Legacy, A Living Culture</h3>
+      <p>Sherpas in America are not simply preserving a past. They are actively shaping a future. By carrying forward the teachings of Buddhism while adapting to new environments, they demonstrate that culture is not static.</p>
+      <p>It evolves, travels, and grows.</p>
+      <p>And in that journey, the Sherpa community continues to offer something powerful: a reminder that strength is not just physical, but spiritual, and that even far from the Himalayas, those values can thrive.</p>
+    `,
+    content: `The story of Sherpas in America is not just about migration. It is about the movement of a deeply rooted culture shaped by mountains, resilience, and spirituality.`,
+    category: 'Culture',
+    image:
+      'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&h=400&fit=crop',
+  },
+  {
     id: 1,
     title: 'The Journey of Sherpas in America: A Story of Resilience',
     author: 'American Sherpa Foundation',
@@ -240,9 +309,16 @@ export default function Blogs() {
                 <p className="text-xl text-gray-600 mb-6 italic">
                   {selectedBlog.excerpt}
                 </p>
-                <div className="whitespace-pre-line leading-relaxed">
-                  {selectedBlog.content}
-                </div>
+                {selectedBlog.contentHtml ? (
+                  <div
+                    className="[font-family:'Source_Serif_4',serif] text-[1.05rem] leading-8 space-y-4 [&_h3]:text-2xl [&_h3]:font-semibold [&_h3]:text-gray-900 [&_h3]:mt-8 [&_h3]:[font-family:'Manrope',sans-serif] [&_p]:text-gray-700 [&_ul]:list-disc [&_ul]:ml-6 [&_ul]:text-gray-700 [&_li]:mb-1"
+                    dangerouslySetInnerHTML={{ __html: selectedBlog.contentHtml }}
+                  />
+                ) : (
+                  <div className="whitespace-pre-line leading-relaxed">
+                    {selectedBlog.content}
+                  </div>
+                )}
               </div>
             </div>
           </div>
